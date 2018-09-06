@@ -23,12 +23,12 @@ describe("Favorites PUT test",function(){
       done();
     });
   });
-
-      userid: req.session.passport.user.toString(),
-      label: req.body.label,
-      dietLabels: req.body.dietLabels,
-      url: req.body.url,
-      image: req.body.image,
+//
+   //   userid: req.session.passport.user.toString(),
+   //   label: req.body.label,
+      // dietLabels: req.body.dietLabels,
+      // url: req.body.url,
+      // image: req.body.image,
 
   // #2 Test Favorites POST
   it("POST test for favorites",function(done){

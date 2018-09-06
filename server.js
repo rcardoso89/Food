@@ -2,11 +2,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 // A middle to validator form entries
 var expressValidator = require('express-validator');
 
-
+var bcrypt = require('bcrypt');
 
 //Authenticaion Packages
 var session = require('express-session');
@@ -27,14 +27,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(expressValidator());//this line must be after bodyparser middleware
 app.use(cookieParser());
 
-if(process.env.JAWSDB_URL){
-  var options = {
-    host: 'i943okdfa47xqzpy.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'pz4n6vtw1csjiuh4',
-    password:'ttdow9z6shys9mqb',
-    database: 'ggp9cyafuzujlxtq'
-  }
-} else {
+
 
   var options = {
     host: 'localhost',
@@ -42,7 +35,7 @@ if(process.env.JAWSDB_URL){
     password:'root',
     database: 'resourcefoods_db'
   };
-}
+
 
 var sessionStore = new MySQLStore(options);
 
@@ -66,33 +59,33 @@ app.use(function(req, res, next){
 
 //Login Authenication
 
-// passport.use(new LocalStrategy(
-//   function(email, password, done) {
+passport.use(new LocalStrategy(
+  function(email, password, done) {
 
-//     db.usertwos.findOne({ where: {email: email} }).then(user => {
-//       console.log('Users LOGIN INFO################');
-//       // console.log(user.dataValues.password);
+    db.usertwos.findOne({ where: {email: email} }).then(user => {
+      console.log('Users LOGIN INFO################');
+      // console.log(user.dataValues.password);
 
-//       if(user){
-//         var hash = user.dataValues.password
-//         var id = user.dataValues.id
-//         bcrypt.compare(password, hash, function(err,response){
+      if(user){
+        var hash = user.dataValues.password
+        var id = user.dataValues.id
+        bcrypt.compare(password, hash, function(err,response){
 
-//           if(response === true){
-//             return done(null, {user_id: id});
-//           } else {
-//             return done(null, false);
-//           }
+          if(response === true){
+            return done(null, {user_id: id});
+          } else {
+            return done(null, false);
+          }
 
-//         });
+        });
 
-//       } else {
-//         done(user);
-//       }
+      } else {
+        done(user);
+      }
 
-//     });
-//   }
-// ));
+    });
+  }
+));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
