@@ -5,7 +5,7 @@
     "database": "resourcefoods_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "PORT": 8889
+    "PORT": "8889"
   },
   "test": {
     "username": "root",
