@@ -7,7 +7,7 @@ var expressValidator = require('express-validator');
 var passport = require('passport');
 
 // Used to hash our passwords to our database for security
-var bcrypt = require('bcrypt');
+
 var saltRounds = 10;
 
 
@@ -60,22 +60,22 @@ module.exports = function(app) {
       console.log(name);
 
       //Used to hash passwords before being sent to the database for secuirty measures
-      bcrypt.hash(password, saltRounds, function(err, hash) {
-        // Store hash in your password DB.
-        db.usertwos.create({
-          username: name,
-          password: hash,
-          email: email
-        }).then((result) => {
-          var user_id = result.id;
+      // bcrypt.hash(password, saltRounds, function(err, hash) {
+      //   // Store hash in your password DB.
+      //   db.usertwos.create({
+      //     username: name,
+      //     password: hash,
+      //     email: email
+      //   }).then((result) => {
+      //     var user_id = result.id;
 
-          req.login(user_id, function(err){
-            if (err) throw err;
-            res.redirect('/profile');
-          });
-        });
+      //     req.login(user_id, function(err){
+      //       if (err) throw err;
+      //       res.redirect('/profile');
+      //     });
+      //   });
 
-      });
+      // });
 
     }
 

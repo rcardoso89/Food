@@ -708,11 +708,7 @@
 8711 silly decomposeActions install tweetnacl@0.14.5
 8712 silly decomposeActions postinstall tweetnacl@0.14.5
 8713 silly decomposeActions finalize tweetnacl@0.14.5
-8714 silly decomposeActions preinstall bcrypt-pbkdf@1.0.1
-8715 silly decomposeActions build bcrypt-pbkdf@1.0.1
-8716 silly decomposeActions install bcrypt-pbkdf@1.0.1
-8717 silly decomposeActions postinstall bcrypt-pbkdf@1.0.1
-8718 silly decomposeActions finalize bcrypt-pbkdf@1.0.1
+
 8719 silly decomposeActions preinstall sshpk@1.13.0
 8720 silly decomposeActions build sshpk@1.13.0
 8721 silly decomposeActions install sshpk@1.13.0
