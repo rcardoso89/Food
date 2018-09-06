@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 // A middle to validator form entries
 var expressValidator = require('express-validator');
 
