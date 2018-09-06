@@ -1,0 +1,24 @@
+
+  <div id="recipeContainer"class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="results">
+          <div class="row">
+            {{#each favorites}}
+                <div class="col-md-3 col-sm-6">
+                  <div class="card recipeCard"><img src={{this.image}} alt="Steak, Egg &amp; Blue Cheese Salad" class="card-img-top">
+                    <hr>
+                    <div class="card-block" style="text-align:center">
+                      <h4 class="card-title" style="font-weight: bold;">{{this.label}}</h4>
+                      <hr>
+                      <p style="font-weight:bold;color:black">Diet Labels : {{this.dietLabels}}</p>
+                      <hr><a href={{this.url}} class="btn btn-primary card-btn" target="_blank">Full Recipe</a></div>
+                  </div>
+                </div>
+            {{/each}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

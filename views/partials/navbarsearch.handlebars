@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default navbar-fixed navigation-clean a navbar-fixed-top">
+        <div class="navbar-header"><a id="logo"class="navbar-brand navbar-link" href="/">ResourceFoods </a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only searchIcon">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav navbar-right">
+            {{#if isAuthenticated}}
+              <li role="presentation"><a href="/recipeSearch">Search</a></li>
+              <li role="presentation"><a href="/favorites">Favorites</a></li>
+              <li role="presentation"><a href="/profile">Dashboard</a></li>
+              <li role="presentation"><a href="/logout">Logout</a></li>
+            {{/if}}
+            {{#unless isAuthenticated}}
+              <li role="presentation"><a href="/recipeSearch">FIND RECIPES</a></li>
+              <li role="presentation"><a href="/#howitworks">HOW IT WORKS</a></li>
+              <li role="presentation"><a href="/login">LOGIN </a></li>
+              <li role="presentation"><a id="signupBtn" href="/register">SIGN UP</a></li>
+            {{/unless}}
+          </ul>
+        </div>
+      </nav>
+      <hr>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="navbar ">
+        <form class="search-form text-center">
+          {{!-- <div class="inner-addon right-addon"> --}}
+          <div id="search-form-div">
+              <input id="searchRecipe" type="text" class="form-control" />
+              <a id="searchRecipeButton" name="button"><i id="searchIcon"class="glyphicon glyphicon-search pull-right"></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

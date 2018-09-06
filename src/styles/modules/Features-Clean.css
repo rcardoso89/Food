@@ -1,0 +1,20 @@
+.features-clean {
+  color:#313437;
+  padding-bottom:30px;
+}
+
+
+
+
+.features-clean p {
+  color:#000;
+}
+
+
+.features-clean .item {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:0;
+  margin-bottom:20px;
+  color:inherit;
+}
