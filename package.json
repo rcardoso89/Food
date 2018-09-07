@@ -1,21 +1,21 @@
 {
   "name": "project2",
   "version": "0.0.1",
-  "description": "Project 2 for UCI BootCamp",
+  "description": "Project 2 for UCF BootCamp",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuisMiguelRodriguez/OrangeTeamProject2.git"
+    "url": "git+https://github.com/rcardoso89/Food.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LuisMiguelRodriguez/OrangeTeamProject2/issues"
+    "url": "https://github.com/rcardoso89/Food/issues"
   },
-  "homepage": "https://github.com/LuisMiguelRodriguez/OrangeTeamProject2#readme",
+  "homepage": "https://github.com/rcardoso89/Food#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.15.2",

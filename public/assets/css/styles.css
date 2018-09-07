@@ -1049,13 +1049,13 @@ hr { margin:1px}
 }
 
 #logo {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Lobster', cursive;
   font-size: 42px;
 }
 
 #howItWorks {
   background-image: url("/assets/img/indgedients.jpg");
-  background-size: cover;
+  background-size: auto;
   height:400px;
 }
 
