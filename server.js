@@ -27,7 +27,14 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(expressValidator());//this line must be after bodyparser middleware
 app.use(cookieParser());
 
-
+if(process.env.JAWSDB_URL){
+  var options = {
+    host: 'uoa25ublaow4obx5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'lkau2p6suacixemr',
+    password:'vq7486dndq30mm2m',
+    database: 'xbcirtpe9ibtcw46'
+  }
+} else {
 
   var options = {
     host: 'localhost',
@@ -35,6 +42,7 @@ app.use(cookieParser());
     password:'root',
     database: 'resourcefoods_db'
   };
+}
 
 
 var sessionStore = new MySQLStore(options);
