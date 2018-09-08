@@ -1,6 +1,5 @@
-// *********************************************************************************
-// api-registration.js - this file registers new users and does validation
-// *********************************************************************************
+//this file registers new users and does validation
+
 
 var db = require("../models");
 var expressValidator = require('express-validator');
@@ -13,21 +12,21 @@ var saltRounds = 10;
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
-  app.get('/home', function(req,res){
-    res.render('home', {title: "PROFILE PAGE"})
+  app.get('/home', function (req, res) {
+    res.render('home', { title: "PROFILE PAGE" })
   });
 
-  app.get('/register', function(req, res){
-    res.render('register', {title: "Register Here"});
+  app.get('/register', function (req, res) {
+    res.render('register', { title: "Register Here" });
   });
 
-  app.get('/profile', authenticationMiddleware() , function(req, res){
+  app.get('/profile', authenticationMiddleware(), function (req, res) {
     res.render('dashboard');
   })
 
-  app.post('/register', function(req, res){
+  app.post('/register', function (req, res) {
 
     //Validation check with Middleware
     req.checkBody('name', 'Name field cannot be empty.').notEmpty();
@@ -44,23 +43,23 @@ module.exports = function(app) {
     var errors = req.validationErrors();
 
     //If there are errors console log and send and object to handlebars to render what those errors are
-    if (errors){
+    if (errors) {
 
-      console.log(`errors: ${JSON.stringify(errors)}` );
+      console.log(`errors: ${JSON.stringify(errors)}`);
 
       res.render('register', {
         title: 'Registration Error',
         errors: errors
       });
     } else {
-      var name     = req.body.name;
-      var email    = req.body.email;
+      var name = req.body.name;
+      var email = req.body.email;
       var password = req.body.password;
 
       console.log(name);
 
       //Used to hash passwords before being sent to the database for secuirty measures
-      bcrypt.hash(password, saltRounds, function(err, hash) {
+      bcrypt.hash(password, saltRounds, function (err, hash) {
         // Store hash in your password DB.
         db.usertwos.create({
           username: name,
@@ -69,7 +68,7 @@ module.exports = function(app) {
         }).then((result) => {
           var user_id = result.id;
 
-          req.login(user_id, function(err){
+          req.login(user_id, function (err) {
             if (err) throw err;
             res.redirect('/profile');
           });
@@ -81,22 +80,22 @@ module.exports = function(app) {
 
   });
 
-  passport.serializeUser(function(user_id, done) {
+  passport.serializeUser(function (user_id, done) {
     done(null, user_id);
   });
 
-  passport.deserializeUser(function(user_id, done) {
-      done(null,user_id);
+  passport.deserializeUser(function (user_id, done) {
+    done(null, user_id);
   });
 
-  function authenticationMiddleware () {
-  	return (req, res, next) => {
-  		console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
+  function authenticationMiddleware() {
+    return (req, res, next) => {
+      console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
 
-  	    if (req.isAuthenticated()) return next();
-  	    res.redirect('/login')
-	}
-}
+      if (req.isAuthenticated()) return next();
+      res.redirect('/login')
+    }
+  }
 
 
 }

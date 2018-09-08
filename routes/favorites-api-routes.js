@@ -1,6 +1,5 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
+//this file offers a set of routes for displaying and saving data to the db
+
 
 // Dependencies
 // =============================================================
@@ -10,21 +9,21 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
   // Registers new user into DataBase
-  app.post("/api/favorites", function(req, res) {
+  app.post("/api/favorites", function (req, res) {
 
     console.log(req.body.label);
-    console.log(typeof(req.session.passport.user.toString()))
+    console.log(typeof (req.session.passport.user.toString()))
     // console.log(typeof(req.session.passport.user.toString();
     console.log(req.body.dietLabels)
     console.log(req.body.url)
     console.log(req.body.image)
     var userID;
-    if (typeof req.session.passport.user === "object"){
+    if (typeof req.session.passport.user === "object") {
       userID = req.session.passport.user.user_id;
-    }else{
+    } else {
       userID = req.session.passport.user;
     }
 
@@ -43,25 +42,27 @@ module.exports = function(app) {
 
 
   // Validates if user auth is valid
-  app.get("/favorites/", function(req, res) {
+  app.get("/favorites/", function (req, res) {
     // Add sequelize code for creating a post using req.body,
     // then return the result using res.json
     var userID;
-    if (typeof req.session.passport.user === "object"){
+    if (typeof req.session.passport.user === "object") {
       userID = req.session.passport.user.user_id;
-    }else{
+    } else {
       userID = req.session.passport.user;
     }
-    console.log("REQ.SESSION.PASSPORT.USER",req.session.passport.user)
-    db.favorites.findAll({where: {
-      userid: userID,
-    }}).then((result) => {
+    console.log("REQ.SESSION.PASSPORT.USER", req.session.passport.user)
+    db.favorites.findAll({
+      where: {
+        userid: userID,
+      }
+    }).then((result) => {
       if (result.length === 0) {
         res.send("NO Favorites")
       } else {
         var resultArray = [];
 
-        console.log(typeof(resultArray))
+        console.log(typeof (resultArray))
 
         result.forEach((val, index) => {
 
@@ -74,7 +75,7 @@ module.exports = function(app) {
           resultArray.push(myObj);
         })
 
-        res.render("favorites", {favorites: resultArray});
+        res.render("favorites", { favorites: resultArray });
       }
     })
   });

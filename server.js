@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var PORT = process.env.PORT || 3000;
+require("dotenv").config();
 // A middle to validator form entries
 var expressValidator = require('express-validator');
 
@@ -27,11 +28,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(expressValidator());//this line must be after bodyparser middleware
 app.use(cookieParser());
 
-if(process.env.JAWSDB_URL){
+if (process.env.JAWSDB_URL) {
   var options = {
     host: 'uoa25ublaow4obx5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     user: 'lkau2p6suacixemr',
-    password:'vq7486dndq30mm2m',
+    password: 'vq7486dndq30mm2m',
     database: 'xbcirtpe9ibtcw46'
   }
 } else {
@@ -39,7 +40,7 @@ if(process.env.JAWSDB_URL){
   var options = {
     host: 'localhost',
     user: 'root',
-    password:'root',
+    password: 'root',
     database: 'resourcefoods_db'
   };
 }
@@ -60,7 +61,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   res.locals.isAuthenticated = req.isAuthenticated();
   next();
 });
@@ -68,19 +69,19 @@ app.use(function(req, res, next){
 //Login Authenication
 
 passport.use(new LocalStrategy(
-  function(email, password, done) {
+  function (email, password, done) {
 
-    db.usertwos.findOne({ where: {email: email} }).then(user => {
+    db.usertwos.findOne({ where: { email: email } }).then(user => {
       console.log('Users LOGIN INFO################');
       // console.log(user.dataValues.password);
 
-      if(user){
+      if (user) {
         var hash = user.dataValues.password
         var id = user.dataValues.id
-        bcrypt.compare(password, hash, function(err,response){
+        bcrypt.compare(password, hash, function (err, response) {
 
-          if(response === true){
-            return done(null, {user_id: id});
+          if (response === true) {
+            return done(null, { user_id: id });
           } else {
             return done(null, false);
           }
@@ -121,11 +122,11 @@ require("./routes/user-api-routes.js")(app);
 
 
 
-db.sequelize.sync({ force: false}).then(function() {
+db.sequelize.sync({ force: false }).then(function () {
 
 });
 
 
-app.listen(PORT, function(){
+app.listen(PORT, function () {
   console.log("Listening on port: " + PORT);
 });

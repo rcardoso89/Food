@@ -1,14 +1,9 @@
 {
   "name": "FoodConnect",
-  "scripts": {
-  },
-  "env": {
-  },
-  "formation": {
-  },
-  "addons": [
-
-  ],
+  "scripts": {},
+  "env": {},
+  "formation": {},
+  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
