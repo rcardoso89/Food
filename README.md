@@ -10,7 +10,6 @@ https://secure-harbor-25203.herokuapp.com/
   ### Front-end  
   - Bootstrap
   - Handlebars
-  - Gulp
   - Animate.css
 
   ### Back-end
