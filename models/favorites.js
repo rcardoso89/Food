@@ -1,6 +1,3 @@
-
-
-
 module.exports = function (sequelize, DataTypes) {
 	var favorites = sequelize.define("favorites", {
 		userid: {
@@ -8,31 +5,31 @@ module.exports = function (sequelize, DataTypes) {
 		},
 		label: {
 			type: DataTypes.STRING,
-      		allowNull: false,
-      		validate: {
-        		len: [1]
-      		}
+			allowNull: false,
+			validate: {
+				len: [1]
+			}
 		},
 		dietLabels: {
 			type: DataTypes.STRING,
-      		allowNull: false,
-      		validate: {
-        		len: [1]
-      		}
+			allowNull: false,
+			validate: {
+				len: [1]
+			}
 		},
 		url: {
 			type: DataTypes.STRING,
-      		allowNull: false,
-      		validate: {
-        		len: [1]
-      		}
+			allowNull: false,
+			validate: {
+				len: [1]
+			}
 		},
 		image: {
 			type: DataTypes.STRING,
-      		allowNull: false,
-      		validate: {
-        		len: [1]
-      		}
+			allowNull: false,
+			validate: {
+				len: [1]
+			}
 		}
 	});
 

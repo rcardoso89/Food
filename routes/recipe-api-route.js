@@ -7,7 +7,7 @@ var db = require("../models");
 function constructURL(paramObject){
 
     if (paramObject.foods){
-        var queryURL = "http://api.edamam.com/search?app_id=424a8caa&app_key=8a5f2c782654123ddad8e6b7d7073ef1&q=";
+        var queryURL = "http://api.edamam.com/search?app_id=d96258fb&app_key=86ac9c15e335fdbc9ee0684debf4c7bb&q=";
         var foods = paramObject.foods.toString();
         queryURL += foods;
         if (paramObject.calories){

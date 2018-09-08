@@ -4,7 +4,7 @@
 heroku 
 
 ## Description
-  ResourceFoods is a site which allows you search for food recipes by entering ingredients that you may have in stock at home. If your sign up
+  foodConnect is a site which allows you search for food recipes by entering ingredients that you may have in stock at home. If your sign up
   you will have the ability save your favorite recipes and custom recipes as well having a history of you recent search items.
 
 ## Technologies Used
