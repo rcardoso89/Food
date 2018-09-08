@@ -16,7 +16,7 @@ function displayRecipes(result){
                 var cardBlock = $("<div>");
                 var title = $("<h4>");
                 var img = $("<img>");
-                var dietLabels = $("<p>");
+                // var dietLabels = $("<p>");
                 var fullRecipe = $("<a>");
 
                 //Add attributes to elements
@@ -55,12 +55,12 @@ function displayRecipes(result){
                 title.text(recipeItem.label);
 
 
-                dietLabels.attr({
-                  style: "font-weight:bold;color:black"
-                })
+                // dietLabels.attr({
+                //   style: "font-weight:bold;color:black"
+                // })
 
-                console.log(recipeItem.dietLabels);
-                dietLabels.text("Diet Labels : " + recipeItem.dietLabels.toString());
+                // console.log(recipeItem.dietLabels);
+                // dietLabels.text("Diet Labels : " + recipeItem.dietLabels.toString());
 
                 fullRecipe.attr({
                   href: recipeItem.url,
@@ -74,8 +74,8 @@ function displayRecipes(result){
                 cardDiv.append(img);
                 cardDiv.append($("<hr>"))
                 cardBlock.append(title);
-                cardBlock.append($("<hr>"));
-                cardBlock.append(dietLabels);
+                // cardBlock.append($("<hr>"));
+                // cardBlock.append(dietLabels);
                 cardBlock.append($("<hr>"));
                 cardBlock.append(fullRecipe);
 
@@ -110,7 +110,7 @@ function myFavorite() {
       label: hearted.attr("label"),
       image: hearted.attr("image"),
       url: hearted.attr("url"),
-      dietLabels: hearted.attr("dietLabels"),
+      // dietLabels: hearted.attr("dietLabels"),
   };
 
   console.log(foods)
@@ -209,7 +209,7 @@ $(document).ready(function(){
               var cardBlock = $("<div>");
               var title = $("<h4>");
               var img = $("<img>");
-              var dietLabels = $("<p>");
+              // var dietLabels = $("<p>");
               var fullRecipe = $("<a>");
               var myFav = $("<span>")
               var favButton = $("<button>")
@@ -217,7 +217,7 @@ $(document).ready(function(){
               //Add attributes to elements
               favButton.attr({
                 label: recipeItem.label,
-                dietLabels: recipeItem.dietLabels,
+                // dietLabels: recipeItem.dietLabels,
                 image: recipeItem.image,
                 url: recipeItem.url,
                 class: "favButton",
@@ -250,12 +250,12 @@ $(document).ready(function(){
               title.text(recipeItem.label);
 
 
-              dietLabels.attr({
-                style: "font-weight:bold;color:black"
-              })
+              // dietLabels.attr({
+              //   style: "font-weight:bold;color:black"
+              // })
 
-              console.log(recipeItem.dietLabels);
-              dietLabels.text("Diet Labels : " + recipeItem.dietLabels.toString());
+              // console.log(recipeItem.dietLabels);
+              // dietLabels.text("Diet Labels : " + recipeItem.dietLabels.toString());
 
               fullRecipe.attr({
                 href: recipeItem.url,
@@ -278,8 +278,8 @@ $(document).ready(function(){
               cardDiv.append(img);
               cardDiv.append($("<hr>"))
               cardBlock.append(title);
-              cardBlock.append($("<hr>"));
-              cardBlock.append(dietLabels);
+              // cardBlock.append($("<hr>"));
+              // cardBlock.append(dietLabels);
               cardBlock.append($("<hr>"));
               cardBlock.append(fullRecipe);
               cardBlock.append($("<hr>"));

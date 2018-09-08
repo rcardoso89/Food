@@ -16,7 +16,7 @@ var generateFavs = function(result) {
     var cardBlock = $("<div>");
     var title = $("<h4>");
     var img = $("<img>");
-    var dietLabels = $("<p>");
+    // var dietLabels = $("<p>");
     var fullRecipe = $("<a>");
 
     //Add attributes to elements
@@ -52,12 +52,12 @@ var generateFavs = function(result) {
     title.text(recipeItem.label);
 
 
-    dietLabels.attr({
-    style: "font-weight:bold;color:black"
-    })
+    // dietLabels.attr({
+    // style: "font-weight:bold;color:black"
+    // })
 
-    console.log(recipeItem.dietLabels);
-    dietLabels.text("Diet Labels : " + recipeItem.dietLabels);
+    // console.log(recipeItem.dietLabels);
+    // dietLabels.text("Diet Labels : " + recipeItem.dietLabels);
 
     fullRecipe.attr({
     href: recipeItem.url,
@@ -72,7 +72,7 @@ var generateFavs = function(result) {
     cardDiv.append($("<hr>"))
     cardBlock.append(title);
     cardBlock.append($("<hr>"));
-    cardBlock.append(dietLabels);
+    // cardBlock.append(dietLabels);
     cardBlock.append($("<hr>"));
     cardBlock.append(fullRecipe);
 
@@ -87,25 +87,25 @@ var myFavs = [
   {
     image: "https://www.edamam.com/web-img/b76/b76a48e89abc9d8dc83c0fd011a30e7a.jpg",
     label: "Steak &amp; Eggs Rancheros" ,
-    dietLabels: "Low-Carb",
+    // dietLabels: "Low-Carb",
     url: "http://www.finecooking.com/recipes/steak-eggs-rancheros.aspx"
   },
   {
     image: "https://www.edamam.com/web-img/b33/b33541d0c45da177396b15918c07c38d.jpg",
     label:"Sunday Brunch: Steak, Eggs, And Sunny Side-Up Asparagus",
-    dietLabels: "Low-Carb",
+    // dietLabels: "Low-Carb",
     url: "http://www.seriouseats.com/recipes/2010/05/sunday-brunch-steak-and-eggs-and-asparagus-cheese-recipe.html"
   },
   {
     image:"https://www.edamam.com/web-img/31f/31f36c43d9330cff1957f9b59bcfaf9c.jpg" ,
     label: "Steak, Egg &amp; Blue Cheese Salad",
-    dietLabels: "Low-Carb",
+    // dietLabels: "Low-Carb",
     url:"http://www.finecooking.com/recipes/steak-egg-blue-cheese-salad.aspx"
   },
   {
     image: "https://www.edamam.com/web-img/14b/14b22dac0fbcfe358c03f93b2b78e0eb.jpg",
     label: "Chicken Fried Steak With Country Gravy",
-    dietLabels: "Low-Carb",
+    // dietLabels: "Low-Carb",
     url: "http://norecipes.com/blog/2008/12/14/chicken-fried-steak-with-country-gravy/"
   }
 ];
